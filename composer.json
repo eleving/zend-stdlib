@@ -1,16 +1,19 @@
 {
-    "name": "zendframework/zend-stdlib",
+    "name": "demoniacdeath/zend-stdlib",
     "description": " ",
     "license": "BSD-3-Clause",
     "keywords": [
         "zf2",
         "stdlib"
     ],
-    "homepage": "https://github.com/zendframework/zend-stdlib",
+    "homepage": "https://github.com/DemoniacDeath/zend-stdlib",
     "autoload": {
         "psr-4": {
             "Zend\\Stdlib\\": "src/"
         }
+    },
+    "replace": {
+        "zendframework/zend-stdlib": "2.7.7"
     },
     "require": {
         "php": "^5.5 || ^7.0",
