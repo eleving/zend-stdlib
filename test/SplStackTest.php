@@ -14,9 +14,9 @@ use Zend\Stdlib\SplStack;
 /**
  * @group      Zend_Stdlib
  */
-class SplStackTest extends \PHPUnit_Framework_TestCase
+class SplStackTest extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         $this->stack = new SplStack();
         $this->stack->push('foo');

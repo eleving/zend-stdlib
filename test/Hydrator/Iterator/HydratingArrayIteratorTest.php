@@ -13,7 +13,7 @@ use ArrayObject;
 use Zend\Stdlib\Hydrator\ArraySerializable;
 use Zend\Stdlib\Hydrator\Iterator\HydratingArrayIterator;
 
-class HydratingArrayIteratorTest extends \PHPUnit_Framework_TestCase
+class HydratingArrayIteratorTest extends \PHPUnit\Framework\TestCase
 {
     public function testHydratesObjectAndClonesOnCurrent()
     {
@@ -52,7 +52,7 @@ class HydratingArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     public function testThrowingInvalidArguementExceptionWhenSettingPrototypeToInvalidClass()
     {
-        $this->setExpectedException('Zend\Hydrator\Exception\InvalidArgumentException');
+        $this->expectException('Zend\Hydrator\Exception\InvalidArgumentException');
         $hydratingIterator = new HydratingArrayIterator(new ArraySerializable(), [], 'not a real class');
     }
 }

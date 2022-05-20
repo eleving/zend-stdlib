@@ -11,9 +11,9 @@ namespace ZendTest\Stdlib;
 
 use Zend\Stdlib\Hydrator\ObjectProperty;
 
-class HydratorObjectPropertyTest extends \PHPUnit_Framework_TestCase
+class HydratorObjectPropertyTest extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         $this->hydrator = new ObjectProperty();
     }

@@ -9,13 +9,13 @@
 
 namespace ZendTest\Stdlib;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase as TestCase;
 use Zend\Stdlib\ErrorHandler;
 use Zend\Stdlib\StringUtils;
 
 class StringUtilsTest extends TestCase
 {
-    public function tearDown()
+    protected function tearDown(): void
     {
         StringUtils::resetRegisteredWrappers();
     }

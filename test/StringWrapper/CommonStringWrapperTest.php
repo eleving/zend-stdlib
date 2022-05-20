@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib\StringWrapper;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase as TestCase;
 
 abstract class CommonStringWrapperTest extends TestCase
 {
@@ -233,7 +233,7 @@ abstract class CommonStringWrapperTest extends TestCase
             $this->fail("Can't instantiate wrapper");
         }
 
-        $this->setExpectedException(
+        $this->expectException(
             'Zend\Stdlib\Exception\InvalidArgumentException',
             "Cannot force cut when width is zero"
         );

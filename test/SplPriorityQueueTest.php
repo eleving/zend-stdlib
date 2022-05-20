@@ -14,9 +14,9 @@ use Zend\Stdlib\SplPriorityQueue;
 /**
  * @group      Zend_Stdlib
  */
-class SplPriorityQueueTest extends \PHPUnit_Framework_TestCase
+class SplPriorityQueueTest extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         $this->queue = new SplPriorityQueue();
         $this->queue->insert('foo', 3);

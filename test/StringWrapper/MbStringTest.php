@@ -14,7 +14,7 @@ use Zend\Stdlib\StringWrapper\MbString;
 
 class MbStringTest extends CommonStringWrapperTest
 {
-    public function setUp()
+    protected function setUp(): void
     {
         if (!extension_loaded('mbstring')) {
             try {

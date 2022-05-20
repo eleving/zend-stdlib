@@ -32,7 +32,7 @@ use Zend\Stdlib\Hydrator\Strategy\SerializableStrategy;
 /**
  * @group      Zend_Stdlib
  */
-class HydratorTest extends \PHPUnit_Framework_TestCase
+class HydratorTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var ClassMethodsCamelCase
@@ -64,7 +64,7 @@ class HydratorTest extends \PHPUnit_Framework_TestCase
      */
     protected $reflection;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->classMethodsCamelCase = new ClassMethodsCamelCase();
         $this->classMethodsTitleCase = new ClassMethodsTitleCase();

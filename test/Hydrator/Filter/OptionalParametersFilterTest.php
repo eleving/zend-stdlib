@@ -17,7 +17,7 @@ use Zend\Stdlib\Hydrator\Filter\OptionalParametersFilter;
  * @covers \Zend\Stdlib\Hydrator\Filter\OptionalParametersFilter
  * @group Zend_Stdlib
  */
-class OptionalParametersFilterTest extends \PHPUnit_Framework_TestCase
+class OptionalParametersFilterTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var OptionalParametersFilter
@@ -27,7 +27,7 @@ class OptionalParametersFilterTest extends \PHPUnit_Framework_TestCase
     /**
      * {@inheritDoc}
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->filter = new OptionalParametersFilter();
     }
@@ -63,7 +63,7 @@ class OptionalParametersFilterTest extends \PHPUnit_Framework_TestCase
 
     public function testTriggersExceptionOnUnknownMethod()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $this->filter->filter(__CLASS__ . '::' . 'nonExistingMethod');
     }
 

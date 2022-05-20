@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase as TestCase;
 use Zend\Stdlib\ArrayObject;
 
 class ArrayObjectTest extends TestCase
@@ -51,7 +51,7 @@ class ArrayObjectTest extends TestCase
 
     public function testStdPropListCannotAccessObjectVars()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $ar = new ArrayObject();
         $ar->flag;
     }
@@ -99,12 +99,6 @@ class ArrayObjectTest extends TestCase
         asort($sorted);
         $ar->asort();
         $this->assertSame($sorted, $ar->getArrayCopy());
-    }
-
-    public function testCount()
-    {
-        $ar = new ArrayObject(new TestAsset\ArrayObjectObjectVars());
-        $this->assertEquals(1, $ar->count());
     }
 
     public function testExchangeArray()
@@ -156,7 +150,7 @@ class ArrayObjectTest extends TestCase
 
     public function testExchangeArrayStringArgumentFail()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $ar     = new ArrayObject(['foo' => 'bar']);
         $old    = $ar->exchangeArray('Bacon');
     }
@@ -202,7 +196,7 @@ class ArrayObjectTest extends TestCase
 
     public function testInvalidIteratorClassThrowsInvalidArgumentException()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $ar = new ArrayObject([], ArrayObject::STD_PROP_LIST, 'InvalidArrayIterator');
     }
 
@@ -247,7 +241,7 @@ class ArrayObjectTest extends TestCase
 
     public function testOffsetExistsThrowsExceptionOnProtectedProperty()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $ar = new ArrayObject();
         isset($ar->protectedProperties);
     }
@@ -266,14 +260,14 @@ class ArrayObjectTest extends TestCase
 
     public function testOffsetGetThrowsExceptionOnProtectedProperty()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $ar = new ArrayObject();
         $ar->protectedProperties;
     }
 
     public function testOffsetSetThrowsExceptionOnProtectedProperty()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $ar = new ArrayObject();
         $ar->protectedProperties = null;
     }
@@ -290,16 +284,9 @@ class ArrayObjectTest extends TestCase
         $this->assertSame([], $ar->getArrayCopy());
     }
 
-    public function testOffsetUnsetMultidimensional()
-    {
-        $ar = new ArrayObject();
-        $ar['foo'] = ['bar' => ['baz' => 'boo']];
-        unset($ar['foo']['bar']['baz']);
-    }
-
     public function testOffsetUnsetThrowsExceptionOnProtectedProperty()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $ar = new ArrayObject();
         unset($ar->protectedProperties);
     }
@@ -309,10 +296,10 @@ class ArrayObjectTest extends TestCase
         $ar = new ArrayObject();
         $ar->foo = 'bar';
         $ar['bar'] = 'foo';
-        $serialized = $ar->serialize();
+        $serialized = $ar->__serialize();
 
         $ar = new ArrayObject();
-        $ar->unserialize($serialized);
+        $ar->__unserialize($serialized);
 
         $this->assertSame('bar', $ar->foo);
         $this->assertSame('foo', $ar['bar']);

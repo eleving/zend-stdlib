@@ -11,11 +11,11 @@ namespace ZendTest\Stdlib;
 
 use Zend\Stdlib\Hydrator\Filter\FilterComposite;
 
-class FilterCompositeTest extends \PHPUnit_Framework_TestCase
+class FilterCompositeTest extends \PHPUnit\Framework\TestCase
 {
     protected $filterComposite;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->filterComposite = new FilterComposite();
     }

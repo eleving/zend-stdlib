@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib\Hydrator;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase as TestCase;
 use ReflectionProperty;
 use Zend\Hydrator\HydratorPluginManager as BasePluginManager;
 use Zend\Stdlib\Hydrator\HydratorInterface;
@@ -17,7 +17,7 @@ use Zend\Stdlib\Hydrator\HydratorPluginManager;
 
 class HydratorPluginManagerTest extends TestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         $this->hydrators = new HydratorPluginManager();
     }

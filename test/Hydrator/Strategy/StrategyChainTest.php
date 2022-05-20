@@ -15,7 +15,7 @@ use Zend\Stdlib\Hydrator\Strategy\ClosureStrategy;
 /**
  * @covers \Zend\Stdlib\Hydrator\Strategy\StrategyChain
  */
-class StrategyChainTest extends \PHPUnit_Framework_TestCase
+class StrategyChainTest extends \PHPUnit\Framework\TestCase
 {
     public function testEmptyStrategyChainReturnsOriginalValue()
     {

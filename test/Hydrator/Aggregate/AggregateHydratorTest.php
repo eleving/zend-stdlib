@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib\Hydrator\Aggregate;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Zend\EventManager\EventManager;
 use Zend\Hydrator\Aggregate\HydratorListener;
@@ -22,7 +22,7 @@ use stdClass;
 /**
  * Unit tests for {@see \Zend\Stdlib\Hydrator\Aggregate\AggregateHydrator}
  */
-class AggregateHydratorTest extends PHPUnit_Framework_TestCase
+class AggregateHydratorTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var \Zend\Stdlib\Hydrator\Aggregate\AggregateHydrator
@@ -37,9 +37,9 @@ class AggregateHydratorTest extends PHPUnit_Framework_TestCase
     /**
      * {@inheritDoc}
      */
-    public function setUp()
+    protected function setUp(): void
     {
-        $this->eventManager = $this->getMock(EventManager::class);
+        $this->eventManager = $this->createMock(EventManager::class);
         $this->hydrator     = new AggregateHydrator();
 
         $this->hydrator->setEventManager($this->eventManager);
@@ -167,7 +167,7 @@ class AggregateHydratorTest extends PHPUnit_Framework_TestCase
     public function testGetSetManager()
     {
         $hydrator     = new AggregateHydrator();
-        $eventManager = $this->getMock('Zend\EventManager\EventManagerInterface');
+        $eventManager = $this->createMock('Zend\EventManager\EventManagerInterface');
 
         $this->assertInstanceOf('Zend\EventManager\EventManagerInterface', $hydrator->getEventManager());
 

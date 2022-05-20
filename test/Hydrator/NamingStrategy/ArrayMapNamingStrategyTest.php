@@ -16,7 +16,7 @@ use Zend\Stdlib\Hydrator\NamingStrategy\ArrayMapNamingStrategy;
  *
  * @covers \Zend\Stdlib\Hydrator\NamingStrategy\ArrayMapNamingStrategy
  */
-class ArrayMapNamingStrategyTest extends \PHPUnit_Framework_TestCase
+class ArrayMapNamingStrategyTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetSameNameWithEmptyMap()
     {

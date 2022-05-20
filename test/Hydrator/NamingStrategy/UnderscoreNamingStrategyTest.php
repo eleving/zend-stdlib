@@ -16,7 +16,7 @@ use Zend\Stdlib\Hydrator\NamingStrategy\UnderscoreNamingStrategy;
  *
  * @covers \Zend\Stdlib\Hydrator\NamingStrategy\UnderscoreNamingStrategy
  */
-class UnderscoreNamingStrategyTest extends \PHPUnit_Framework_TestCase
+class UnderscoreNamingStrategyTest extends \PHPUnit\Framework\TestCase
 {
     public function testNameHydratesToCamelCase()
     {

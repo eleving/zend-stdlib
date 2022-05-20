@@ -16,7 +16,7 @@ use Zend\Stdlib\Hydrator\NamingStrategy\IdentityNamingStrategy;
  *
  * @covers \Zend\Stdlib\Hydrator\NamingStrategy\IdentityNamingStrategy
  */
-class IdentityNamingStrategyTest extends \PHPUnit_Framework_TestCase
+class IdentityNamingStrategyTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @dataProvider getTestedNames

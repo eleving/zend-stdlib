@@ -15,7 +15,7 @@ use Zend\Stdlib\Hydrator\Strategy\ClosureStrategy;
 /**
  * @group      Zend_Stdlib
  */
-class HydratorClosureStrategyTest extends \PHPUnit_Framework_TestCase
+class HydratorClosureStrategyTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * The hydrator that is used during testing.
@@ -24,7 +24,7 @@ class HydratorClosureStrategyTest extends \PHPUnit_Framework_TestCase
      */
     private $hydrator;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->hydrator = new ObjectProperty();
     }
