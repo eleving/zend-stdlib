@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib\Guard;
 
-use PHPUnit\Framework\TestCase as TestCase;
+use PHPUnit_Framework_TestCase as TestCase;
 use ZendTest\Stdlib\TestAsset\GuardedObject;
 use Zend\Stdlib\ArrayObject;
 
@@ -19,7 +19,7 @@ use Zend\Stdlib\ArrayObject;
  */
 class ArrayOrTraversableGuardTraitTest extends TestCase
 {
-    protected function setUp(): void
+    public function setUp()
     {
         if (version_compare(PHP_VERSION, '5.4.0', '<')) {
             $this->markTestSkipped('Only valid for php >= 5.4');
@@ -29,7 +29,7 @@ class ArrayOrTraversableGuardTraitTest extends TestCase
     public function testGuardForArrayOrTraversableThrowsException()
     {
         $object = new GuardedObject;
-        $this->expectException(
+        $this->setExpectedException(
             'Zend\Stdlib\Exception\InvalidArgumentException',
             'Argument must be an array or Traversable, [string] given'
         );

@@ -10,7 +10,7 @@
 
 namespace ZendTest\Stdlib\Hydrator;
 
-use PHPUnit\Framework\TestCase as TestCase;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * @requires PHP 5.4

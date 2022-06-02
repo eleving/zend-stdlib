@@ -11,7 +11,7 @@ namespace ZendTest\Stdlib\Hydrator\Strategy;
 
 use Zend\Stdlib\Hydrator\Strategy\ClosureStrategy;
 
-class ClosureStrategyTest extends \PHPUnit\Framework\TestCase
+class ClosureStrategyTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @return array

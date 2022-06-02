@@ -75,7 +75,7 @@ class Native extends AbstractStringWrapper
             );
         }
 
-        if ($encodingUpper !== strtoupper((string)$convertEncoding)) {
+        if ($encodingUpper !== strtoupper($convertEncoding)) {
             $this->convertEncoding = $encodingUpper;
         }
 

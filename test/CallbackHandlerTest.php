@@ -10,14 +10,13 @@
 namespace ZendTest\Stdlib;
 
 use Zend\Stdlib\CallbackHandler;
-use ZendTest\Stdlib\SignalHandlers\InstanceMethod;
 
 /**
  * @group      Zend_Stdlib
  */
-class CallbackHandlerTest extends \PHPUnit\Framework\TestCase
+class CallbackHandlerTest extends \PHPUnit_Framework_TestCase
 {
-    protected function setUp(): void
+    public function setUp()
     {
         if (isset($this->args)) {
             unset($this->args);
@@ -53,7 +52,7 @@ class CallbackHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function testPassingInvalidCallbackShouldRaiseInvalidCallbackExceptionDuringInstantiation()
     {
-        $this->expectException('Zend\Stdlib\Exception\InvalidCallbackException');
+        $this->setExpectedException('Zend\Stdlib\Exception\InvalidCallbackException');
         $handler = new CallbackHandler('boguscallback');
     }
 
@@ -69,15 +68,45 @@ class CallbackHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function testStringCallbackResolvingToClassDefiningInvokeNameShouldRaiseException()
     {
-        $this->expectException('Zend\Stdlib\Exception\InvalidCallbackException');
+        $this->setExpectedException('Zend\Stdlib\Exception\InvalidCallbackException');
         $handler = new CallbackHandler('ZendTest\\Stdlib\\SignalHandlers\\Invokable');
     }
 
     public function testStringCallbackReferringToClassWithoutDefinedInvokeShouldRaiseException()
     {
-        $this->expectException('Zend\Stdlib\Exception\InvalidCallbackException');
+        $this->setExpectedException('Zend\Stdlib\Exception\InvalidCallbackException');
         $class   = new SignalHandlers\InstanceMethod();
         $handler = new CallbackHandler($class);
+    }
+
+    public function testCallbackConsistingOfStringContextWithNonStaticMethodShouldNotRaiseExceptionButWillRaiseEStrict()
+    {
+        $handler = new CallbackHandler(['ZendTest\\Stdlib\\SignalHandlers\\InstanceMethod', 'handler']);
+        $error   = false;
+        set_error_handler(function ($errno, $errstr) use (&$error) {
+            $error = true;
+        }, E_STRICT|E_DEPRECATED);
+        $handler->call();
+        restore_error_handler();
+        $this->assertTrue($error);
+    }
+
+    public function testStringCallbackConsistingOfNonStaticMethodShouldRaiseException()
+    {
+        $handler = new CallbackHandler('ZendTest\\Stdlib\\SignalHandlers\\InstanceMethod::handler');
+
+        if (version_compare(PHP_VERSION, '5.4.0rc1', '>=')) {
+            $this->setExpectedException('Zend\Stdlib\Exception\InvalidCallbackException');
+            $handler->call();
+        } else {
+            $error   = false;
+            set_error_handler(function ($errno, $errstr) use (&$error) {
+                $error = true;
+            }, E_STRICT);
+            $handler->call();
+            restore_error_handler();
+            $this->assertTrue($error);
+        }
     }
 
     public function testStringStaticCallbackForPhp54()
@@ -116,7 +145,7 @@ class CallbackHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function testCallbackToClassImplementingOverloadingButNotInvocableShouldRaiseException()
     {
-        $this->expectException('Zend\Stdlib\Exception\InvalidCallbackException');
+        $this->setExpectedException('Zend\Stdlib\Exception\InvalidCallbackException');
         $handler = new CallbackHandler('foo', [ 'ZendTest\\Stdlib\\SignalHandlers\\Overloadable', 'foo' ]);
     }
 

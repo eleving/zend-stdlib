@@ -14,9 +14,9 @@ use Zend\Stdlib\SplQueue;
 /**
  * @group      Zend_Stdlib
  */
-class SplQueueTest extends \PHPUnit\Framework\TestCase
+class SplQueueTest extends \PHPUnit_Framework_TestCase
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->queue = new SplQueue();
         $this->queue->push('foo');

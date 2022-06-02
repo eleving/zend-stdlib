@@ -20,7 +20,7 @@ use ZendTest\Stdlib\TestAsset\ArraySerializable;
  *
  * @covers \Zend\Stdlib\Hydrator\ClassMethods
  */
-class ClassMethodsTest extends \PHPUnit\Framework\TestCase
+class ClassMethodsTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var ClassMethods
@@ -30,7 +30,7 @@ class ClassMethodsTest extends \PHPUnit\Framework\TestCase
     /**
      * {@inheritDoc}
      */
-    protected function setUp(): void
+    public function setUp()
     {
         $this->hydrator = new ClassMethods();
     }

@@ -14,28 +14,28 @@ use Zend\Stdlib\Hydrator\HydratorPluginManager;
 /**
  * @group Zend_Stdlib
  */
-class HydratorManagerTest extends \PHPUnit\Framework\TestCase
+class HydratorManagerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var HydratorPluginManager
      */
     protected $manager;
 
-    protected function setUp(): void
+    public function setUp()
     {
         $this->manager = new HydratorPluginManager();
     }
 
     public function testRegisteringInvalidElementRaisesException()
     {
-        $this->expectException('Zend\Hydrator\Exception\RuntimeException');
+        $this->setExpectedException('Zend\Hydrator\Exception\RuntimeException');
         $this->manager->setService('test', $this);
     }
 
     public function testLoadingInvalidElementRaisesException()
     {
         $this->manager->setInvokableClass('test', get_class($this));
-        $this->expectException('Zend\Hydrator\Exception\RuntimeException');
+        $this->setExpectedException('Zend\Hydrator\Exception\RuntimeException');
         $this->manager->get('test');
     }
 }

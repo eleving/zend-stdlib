@@ -11,7 +11,7 @@
         "zendframework/zend-stdlib": "2.7.7"
     },
     "require": {
-        "php": "^7.0 || ^8.0",
+        "php": "^5.5 || ^7.0",
         "zendframework/zend-hydrator": "~1.1"
     },
     "require-dev": {
@@ -21,7 +21,8 @@
         "zendframework/zend-serializer": "~2.5",
         "zendframework/zend-servicemanager": "~2.5",
         "zendframework/zend-filter": "~2.5",
-        "phpunit/phpunit": "~8.0",
+        "fabpot/php-cs-fixer": "1.7.*",
+        "phpunit/phpunit": "~4.0",
         "athletic/athletic": "~0.1"
     },
     "suggest": {

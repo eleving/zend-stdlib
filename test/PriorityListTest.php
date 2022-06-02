@@ -10,7 +10,7 @@
 namespace ZendTest\Stdlib;
 
 use Zend\Stdlib\PriorityList;
-use PHPUnit\Framework\TestCase as TestCase;
+use PHPUnit_Framework_TestCase as TestCase;
 
 class PriorityListTest extends TestCase
 {
@@ -19,7 +19,7 @@ class PriorityListTest extends TestCase
      */
     protected $list;
 
-    protected function setUp(): void
+    public function setUp()
     {
         $this->list = new PriorityList();
     }

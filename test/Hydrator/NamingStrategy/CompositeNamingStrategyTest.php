@@ -17,12 +17,12 @@ use Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface;
  *
  * @covers \Zend\Stdlib\Hydrator\NamingStrategy\CompositeNamingStrategy
  */
-class CompositeNamingStrategyTest extends \PHPUnit\Framework\TestCase
+class CompositeNamingStrategyTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetSameNameWhenNoNamingStrategyExistsForTheName()
     {
         $compositeNamingStrategy = new CompositeNamingStrategy([
-            'foo' => $this->createMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface')
+            'foo' => $this->getMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface')
         ]);
 
         $this->assertEquals('bar', $compositeNamingStrategy->hydrate('bar'));
@@ -32,7 +32,7 @@ class CompositeNamingStrategyTest extends \PHPUnit\Framework\TestCase
     public function testUseDefaultNamingStrategy()
     {
         /* @var $defaultNamingStrategy NamingStrategyInterface|\PHPUnit_Framework_MockObject_MockObject*/
-        $defaultNamingStrategy = $this->createMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface');
+        $defaultNamingStrategy = $this->getMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface');
         $defaultNamingStrategy->expects($this->at(0))
             ->method('hydrate')
             ->with('foo')
@@ -43,7 +43,7 @@ class CompositeNamingStrategyTest extends \PHPUnit\Framework\TestCase
             ->will($this->returnValue('foo'));
 
         $compositeNamingStrategy = new CompositeNamingStrategy(
-            ['bar' => $this->createMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface')],
+            ['bar' => $this->getMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface')],
             $defaultNamingStrategy
         );
         $this->assertEquals('Foo', $compositeNamingStrategy->hydrate('foo'));
@@ -52,7 +52,7 @@ class CompositeNamingStrategyTest extends \PHPUnit\Framework\TestCase
 
     public function testHydrate()
     {
-        $fooNamingStrategy = $this->createMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface');
+        $fooNamingStrategy = $this->getMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface');
         $fooNamingStrategy->expects($this->once())
             ->method('hydrate')
             ->with('foo')
@@ -63,7 +63,7 @@ class CompositeNamingStrategyTest extends \PHPUnit\Framework\TestCase
 
     public function testExtract()
     {
-        $fooNamingStrategy = $this->createMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface');
+        $fooNamingStrategy = $this->getMock('Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface');
         $fooNamingStrategy->expects($this->once())
             ->method('extract')
             ->with('FOO')

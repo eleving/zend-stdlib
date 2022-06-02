@@ -14,14 +14,14 @@ use Zend\Stdlib\PriorityQueue;
 /**
  * @group      Zend_Stdlib
  */
-class PriorityQueueTest extends \PHPUnit\Framework\TestCase
+class PriorityQueueTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var PriorityQueue
      */
     protected $queue;
 
-    protected function setUp(): void
+    public function setUp()
     {
         $this->queue = new PriorityQueue();
         $this->queue->insert('foo', 3);

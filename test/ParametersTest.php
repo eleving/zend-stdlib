@@ -11,7 +11,7 @@ namespace ZendTest\Stdlib;
 
 use Zend\Stdlib\Parameters;
 
-class ParametersTest extends \PHPUnit\Framework\TestCase
+class ParametersTest extends \PHPUnit_Framework_TestCase
 {
     public function testParametersConstructionAndClassStructure()
     {

@@ -18,7 +18,7 @@ use Zend\Stdlib\Hydrator\Reflection;
  * @covers \Zend\Stdlib\Hydrator\Reflection
  * @group Zend_Stdlib
  */
-class ReflectionTest extends \PHPUnit\Framework\TestCase
+class ReflectionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var Reflection
@@ -28,7 +28,7 @@ class ReflectionTest extends \PHPUnit\Framework\TestCase
     /**
      * {@inheritDoc}
      */
-    protected function setUp(): void
+    public function setUp()
     {
         $this->hydrator = new Reflection();
     }

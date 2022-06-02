@@ -9,12 +9,12 @@
 
 namespace ZendTest\Stdlib;
 
-use PHPUnit\Framework\TestCase as TestCase;
+use PHPUnit_Framework_TestCase as TestCase;
 use Zend\Stdlib\ErrorHandler;
 
 class ErrorHandlerTest extends TestCase
 {
-    protected function tearDown(): void
+    public function tearDown()
     {
         if (ErrorHandler::getNestedLevel()) {
             ErrorHandler::clean();
@@ -75,7 +75,7 @@ class ErrorHandlerTest extends TestCase
         ErrorHandler::start();
         strpos(); // Invalid argument list
 
-        $this->expectException('ErrorException');
+        $this->setExpectedException('ErrorException');
         ErrorHandler::stop(true);
     }
 

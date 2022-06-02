@@ -16,7 +16,7 @@ use Zend\Stdlib\Hydrator\Filter\NumberOfParameterFilter;
  *
  * @covers \Zend\Stdlib\Hydrator\Filter\NumberOfParameterFilter
  */
-class NumberOfParameterFilterTest extends \PHPUnit\Framework\TestCase
+class NumberOfParameterFilterTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @group 6083

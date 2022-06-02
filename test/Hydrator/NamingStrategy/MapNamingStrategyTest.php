@@ -11,7 +11,7 @@ namespace ZendTest\Stdlib\Hydrator\NamingStrategy;
 
 use Zend\Stdlib\Hydrator\NamingStrategy\MapNamingStrategy;
 
-class MapNamingStrategyTest extends \PHPUnit\Framework\TestCase
+class MapNamingStrategyTest extends \PHPUnit_Framework_TestCase
 {
     public function testHydrateMap()
     {
@@ -34,7 +34,7 @@ class MapNamingStrategyTest extends \PHPUnit\Framework\TestCase
 
     public function testSingleMapInvalidValue()
     {
-        $this->expectException('InvalidArgumentException');
+        $this->setExpectedException('InvalidArgumentException');
         new MapNamingStrategy(['foo' => 3.1415]);
     }
 }

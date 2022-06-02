@@ -14,11 +14,11 @@ use Zend\Stdlib\DateTime;
 /**
  * @group      Zend_Stdlib
  */
-class DateTimeTest extends \PHPUnit\Framework\TestCase
+class DateTimeTest extends \PHPUnit_Framework_TestCase
 {
     public $dateTime;
 
-    protected function setUp(): void
+    public function setUp()
     {
         set_error_handler(function ($errno, $errstr) {
             if (!stristr($errstr, 'datetime extension deprecated')) {

@@ -14,7 +14,7 @@ use ArrayObject;
 use Zend\Stdlib\Hydrator\ArraySerializable;
 use Zend\Stdlib\Hydrator\Iterator\HydratingIteratorIterator;
 
-class HydratingIteratorIteratorTest extends \PHPUnit\Framework\TestCase
+class HydratingIteratorIteratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testHydratesObjectAndClonesOnCurrent()
     {
@@ -56,7 +56,7 @@ class HydratingIteratorIteratorTest extends \PHPUnit\Framework\TestCase
 
     public function testThrowingInvalidArguementExceptionWhenSettingPrototypeToInvalidClass()
     {
-        $this->expectException('Zend\Hydrator\Exception\InvalidArgumentException');
+        $this->setExpectedException('Zend\Hydrator\Exception\InvalidArgumentException');
         $hydratingIterator = new HydratingIteratorIterator(
             new ArraySerializable(),
             new ArrayIterator(),

@@ -20,7 +20,7 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
  *
  * @covers \Zend\Stdlib\Hydrator\DelegatingHydrator
  */
-class DelegatingHydratorTest extends \PHPUnit\Framework\TestCase
+class DelegatingHydratorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var DelegatingHydrator
@@ -40,7 +40,7 @@ class DelegatingHydratorTest extends \PHPUnit\Framework\TestCase
     /**
      * {@inheritDoc}
      */
-    protected function setUp(): void
+    public function setUp()
     {
         $this->hydrators = $this->prophesize(ServiceLocatorInterface::class);
         $this->hydrators->willImplement(ContainerInterface::class);

@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib\Hydrator\Aggregate;
 
-use PHPUnit\Framework\TestCase;
+use PHPUnit_Framework_TestCase;
 use Zend\Stdlib\Hydrator\Aggregate\ExtractEvent;
 use Zend\Stdlib\Hydrator\Aggregate\HydrateEvent;
 use Zend\Stdlib\Hydrator\Aggregate\HydratorListener;
@@ -18,7 +18,7 @@ use stdClass;
 /**
  * Unit tests for {@see \Zend\Stdlib\Hydrator\Aggregate\HydratorListener}
  */
-class HydratorListenerTest extends \PHPUnit\Framework\TestCase
+class HydratorListenerTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var \Zend\Stdlib\Hydrator\HydratorInterface|\PHPUnit_Framework_MockObject_MockObject
@@ -35,9 +35,9 @@ class HydratorListenerTest extends \PHPUnit\Framework\TestCase
      *
      * @covers \Zend\Stdlib\Hydrator\Aggregate\HydratorListener::__construct
      */
-    protected function setUp(): void
+    public function setUp()
     {
-        $this->hydrator = $this->createMock('Zend\Hydrator\HydratorInterface');
+        $this->hydrator = $this->getMock('Zend\Hydrator\HydratorInterface');
         $this->listener = new HydratorListener($this->hydrator);
     }
 
@@ -46,7 +46,7 @@ class HydratorListenerTest extends \PHPUnit\Framework\TestCase
      */
     public function testAttach()
     {
-        $eventManager = $this->createMock('Zend\EventManager\EventManagerInterface');
+        $eventManager = $this->getMock('Zend\EventManager\EventManagerInterface');
 
         $eventManager
             ->expects($this->exactly(2))

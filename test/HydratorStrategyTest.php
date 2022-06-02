@@ -15,7 +15,7 @@ use Zend\Stdlib\Hydrator\ClassMethods;
 /**
  * @group      Zend_Stdlib
  */
-class HydratorStrategyTest extends \PHPUnit\Framework\TestCase
+class HydratorStrategyTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * The hydrator that is used during testing.
@@ -24,7 +24,7 @@ class HydratorStrategyTest extends \PHPUnit\Framework\TestCase
      */
     private $hydrator;
 
-    protected function setUp(): void
+    public function setUp()
     {
         $this->hydrator = new ClassMethods();
     }
@@ -107,7 +107,7 @@ class HydratorStrategyTest extends \PHPUnit\Framework\TestCase
     {
         $hydrator = new ClassMethods($underscoreSeparatedKeys);
 
-        $strategy = $this->createMock('Zend\Stdlib\Hydrator\Strategy\StrategyInterface');
+        $strategy = $this->getMock('Zend\Stdlib\Hydrator\Strategy\StrategyInterface');
 
         $entity = new TestAsset\ClassMethodsUnderscore();
         $value = $entity->getFooBar();

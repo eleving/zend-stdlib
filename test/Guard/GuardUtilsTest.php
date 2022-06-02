@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib\Guard;
 
-use PHPUnit\Framework\TestCase as TestCase;
+use PHPUnit_Framework_TestCase as TestCase;
 use Zend\Stdlib\Guard\GuardUtils;
 use Zend\Stdlib\ArrayObject;
 
@@ -20,7 +20,7 @@ class GuardUtilsTest extends TestCase
 {
     public function testGuardForArrayOrTraversableThrowsException()
     {
-        $this->expectException(
+        $this->setExpectedException(
             'Zend\Stdlib\Exception\InvalidArgumentException',
             'Argument must be an array or Traversable, [string] given'
         );
@@ -40,7 +40,7 @@ class GuardUtilsTest extends TestCase
 
     public function testGuardAgainstEmptyThrowsException()
     {
-        $this->expectException(
+        $this->setExpectedException(
             'Zend\Stdlib\Exception\InvalidArgumentException',
             'Argument cannot be empty'
         );
@@ -54,7 +54,7 @@ class GuardUtilsTest extends TestCase
 
     public function testGuardAgainstNullThrowsException()
     {
-        $this->expectException(
+        $this->setExpectedException(
             'Zend\Stdlib\Exception\InvalidArgumentException',
             'Argument cannot be null'
         );

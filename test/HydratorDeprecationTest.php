@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib;
 
-use PHPUnit\Framework\TestCase as TestCase;
+use PHPUnit_Framework_TestCase as TestCase;
 
 class HydratorDeprecationTest extends TestCase
 {

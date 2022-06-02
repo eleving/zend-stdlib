@@ -11,7 +11,7 @@ namespace ZendTest\Stdlib;
 
 use Zend\Stdlib\Message;
 
-class MessageTest extends \PHPUnit\Framework\TestCase
+class MessageTest extends \PHPUnit_Framework_TestCase
 {
     public function testMessageCanSetAndGetContent()
     {
@@ -48,7 +48,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     {
         $message = new Message();
 
-        $this->expectException('Zend\Stdlib\Exception\InvalidArgumentException');
+        $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
         $message->setMetadata(new \stdClass());
     }
 
@@ -56,7 +56,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     {
         $message = new Message();
 
-        $this->expectException('Zend\Stdlib\Exception\InvalidArgumentException');
+        $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
         $message->getMetadata(new \stdClass());
     }
 

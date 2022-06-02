@@ -14,9 +14,9 @@ use Zend\Stdlib\FastPriorityQueue;
 /**
  * @group      Zend_Stdlib
  */
-class FastPriorityQueueTest extends \PHPUnit\Framework\TestCase
+class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->queue = new FastPriorityQueue();
         $this->insertDataQueue($this->queue);

@@ -10,7 +10,7 @@
 namespace ZendTest\Stdlib;
 
 use ArrayObject;
-use PHPUnit\Framework\TestCase as TestCase;
+use PHPUnit_Framework_TestCase as TestCase;
 use stdClass;
 use Zend\Config\Config;
 use Zend\Stdlib\ArrayUtils;
@@ -479,7 +479,7 @@ class ArrayUtilsTest extends TestCase
      */
     public function testInvalidIteratorsRaiseInvalidArgumentException($test)
     {
-        $this->expectException('Zend\Stdlib\Exception\InvalidArgumentException');
+        $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
         $this->assertFalse(ArrayUtils::iteratorToArray($test));
     }
 

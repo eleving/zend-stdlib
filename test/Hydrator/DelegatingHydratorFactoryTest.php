@@ -13,7 +13,7 @@ use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\DelegatingHydratorFactory;
 
-class DelegatingHydratorFactoryTest extends \PHPUnit\Framework\TestCase
+class DelegatingHydratorFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testFactory()
     {
